@@ -1,0 +1,93 @@
+.container {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    padding: 0 10px !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+    max-width: 100%;
+}
+
+.truncate-line__2 {
+    width: 100%;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.truncate-line__3 {
+    width: 100%;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+.truncate-line__4 {
+    width: 100%;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+
+.shadow-custom {
+    --tw-shadow: 13px 16px 10px 1px rgba(5, 93, 188, 0.2);
+    box-shadow: 13px 16px 10px 1px rgba(5, 93, 188, 0.2);
+}
+
+.border__menu {
+    border-radius: 15px 15px 0 0;
+}
+
+.height {
+    &--card {
+        height: 360px;
+    }
+    &--image {
+        height: 200px;
+    }
+    &--image_post{
+        height: 240px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        padding: 0 30px !important;
+        max-width: 1024px;
+    }
+    .height {
+        &--card {
+            height: 500px !important;
+        }
+        &--image {
+            height: 320px !important;
+        }
+   }
+}
+@media screen and (min-width: 1024px) {
+    .container {
+        padding: 0 60px !important;
+        max-width: 1200px;
+    }
+    
+    .height {
+        &--card {
+            height: 560px !important;
+        }
+        &--image {
+            height: 360px !important;
+        }
+   }
+}
+@media screen and (min-width: 1200px) {
+    .container {
+        padding: 0 80px !important;
+        max-width: 1440px;
+    }
+}
+@media screen and (min-width: 1440px) {
+    .container {
+        padding: 0 140px !important;
+        max-width: 1600px;
+    }
+}
