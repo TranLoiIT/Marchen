@@ -32,8 +32,20 @@
                                         <div class="w-1/2 lg:text-2xl text-lg font-bold">MODEL: {{ product.model }}</div>
                                         <div class="w-1/2 tablet-600:pl-10 lg:text-2xl text-lg font-bold">{{ numberFormat(product.price) }} VNĐ</div>
                                    </div>
-                                   <div class="mt-5">
-                                        {{ product.description }}
+                                   <div class="flex justify-between mt-2">
+                                        <div class="flex items-center">
+                                             <img src="~/assets/image/technology.png" style="width: 36px;" alt="">
+                                             <p class="ml-1 text-sm font-thin italic">Technology by Germany</p>
+                                        </div>
+                                        <div class="flex tablet-600:mr-10px">
+                                             <img src="~/assets/image/icon1.png" style="width: 52px;" alt="">
+                                             <img src="~/assets/image/icon2.png" style="width: 52px;" alt="">
+                                             <img src="~/assets/image/icon3.png" style="width: 52px;" alt="">
+                                             <img src="~/assets/image/icon4.png" style="width: 52px;" alt="">
+                                        </div>
+                                   </div>
+                                   <div class="mt-5 text-base font-normal">
+                                        <span v-html="product.description"></span>
                                    </div>
                                    <div class="flex justify-end mt-5">
                                         <a href="tel:+084965020318">
@@ -173,6 +185,7 @@ export default {
                          const { data } = await getIdItem(id);
                          this.product = data.item;
                          this.listItem = data.relation;
+                         this.product.description = this.formatText(data.item.description);
                     }
                } catch (error) {
                     console.log(error);
@@ -190,6 +203,11 @@ export default {
                if (id) {
                     this.$router.push(`/products/${id}`);
                }
+          },
+          formatText(value) {
+               console.log(value);
+               const data = value;
+               return data.replace(/\n/g, "<br />");
           }
      },
 }

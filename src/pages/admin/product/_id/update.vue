@@ -122,7 +122,9 @@ export default {
         try {
             const page = 1;
             const pageSize = 20;
-            const { data } = await getCategory({page, pageSize});
+            const order = 'DESC';
+            const status = true;
+            const { data } = await getCategory({page, pageSize, order, status});
             return {
                 category: data.data,
             };
@@ -179,13 +181,12 @@ export default {
     },
     methods: {
         async getData(Id) {
+            this.loading = true;
             try {
                 const { data } = await getIdItem(Id);
                 if (data) {
-                    this.formData = {
-                        ...data.item,
-                        categoryId: data.item.category.id,
-                    };
+                    this.formData = data.item;
+                    this.formData.categoryId = data.item.category?.id
                 }
             } catch (error) {
                 if (error.response.data.statusCode === 401) {

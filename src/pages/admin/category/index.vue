@@ -68,7 +68,9 @@ export default {
                     currentPage: 1,
                     pageSize: 10,
                     totalPage: 0,
-                    totalCount: 0
+                    totalCount: 0,
+                    order: 'DESC',
+                    status: true,
                },
                dataTable : [],
                loading: false,
@@ -83,9 +85,13 @@ export default {
           async getData() {
                try {
                     this.loading = true;
-                    const page = this.pagination.currentPage;
-                    const pageSize = this.pagination.pageSize;
-                    const { data } = await getCategory({page, pageSize});
+                    const param = {
+                         page: this.pagination.currentPage,
+                         pageSize: this.pagination.pageSize,
+                         order: 'DESC',
+                         status: true,
+                    }
+                    const { data } = await getCategory(param);
                     if (data) {
                          this.dataTable = data.data;
                          this.pagination = data.pagination

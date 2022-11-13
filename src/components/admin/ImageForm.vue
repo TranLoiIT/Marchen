@@ -8,8 +8,8 @@
                     @change="onFileChange"
                >
           </div>
-          <div v-if="image" class="mt-4">
-               <img :src="image" :alt="altImage" style="width: 200px;">
+          <div class="mt-4">
+               <img :src="image ? image : `${URL}/uploads/${value}`" :alt="altImage" style="width: 200px;">
           </div>
           <p v-if="errorImageSize" class="text-red-600">
                Uploaded image exceeds 500kb, please choose another file
@@ -33,6 +33,7 @@ export default {
                image: '',
                file: this.value,
                errorImageSize: false,
+               URL: process.env.BROWSER_API_URL,
           }
      },
      watch: {
@@ -56,15 +57,15 @@ export default {
                const files = e.target.files || e.dataTransfer.files;
                const type = e.srcElement.id;
                if (!files.length) return;
-               if (files[0].size > 524288) {
-                    this.errorImageSize = true;
-                    this.file = '';
-               } else {
-                    this.errorImageSize = false;
+               // if (files[0].size > 524288) {
+               //      this.errorImageSize = true;
+               //      this.file = '';
+               // } else {
+               //      this.errorImageSize = false;
                     this.file = files[0];
                     this.$emit('input', files[0]);
                     this.createImage(files[0], type);
-               }
+               // }
           },
           createImage(file, type) {
                const reader = new FileReader();

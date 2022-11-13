@@ -10,7 +10,7 @@
                                         v-for="(item, index) in listCategory"
                                         :key="index"
                                         :class="(activeCategories === item.id) ? 'bg-white text-black border__menu' : ''"
-                                        @click="activeCategories = item.id"
+                                        @click="changeCategories(item.id)"
                                         class="col-span-1 py-3 flex justify-center cursor-pointer"
                                    >{{ item.name }}</div>
                               </div>
@@ -24,7 +24,7 @@
                                    class="col-span-1 bg-white rounded-15 shadow-xl height--card"
                               >
                                    <img
-                                        class="w-full rounded-t-15 object-cover height--image"
+                                        class="w-full rounded-t-15 object-cover height--image py-2"
                                         :src="`${URL}/uploads/${item.img_item}`"
                                         :alt="item.img_item"
                                    >
@@ -160,7 +160,7 @@ import { Carousel, Slide } from 'vue-carousel';
 import BannerGroup from '@/components/home/BannerGroup'
 import LoadingVue from '~/components/Loading.vue';
 import BtnShowMoreVue from '~/components/home/BtnShowMore.vue';
-import { getItem, getIdItem, getPost, getIdPost } from '~/api/home';
+import { getItem, getPost, getCategories } from '~/api/home';
    
 export default {
      components: {
@@ -170,18 +170,30 @@ export default {
           BtnShowMoreVue,
           BannerGroup,
      },
+     async asyncData() {
+          try {
+               const parama = {
+                    page: 1,
+                    pageSize: 10,
+                    order: 'ASC',
+                    status: true,
+               }
+               const { data } = await getCategories(parama);
+               return {
+                    listCategory: data.data,
+                    activeCategories: data.data[0].id,
+               };
+          } catch (error) {
+               console.log(error);
+          }
+     },
      layout: 'home',
      mounted() {
           this.getData();
      },
      data() {
           return {
-               listCategory: [
-                    {id: '1', name: 'Bếp từ'},
-                    {id: '2', name: 'Hút mùi'},
-                    {id: '3', name: 'Máy rửa bát'},
-                    {id: '4', name: 'Đồ gia dụng'},
-               ],
+               listCategory: [],
                pageItem: {
                     currentPage: null,
                     totalCount: null,
@@ -189,6 +201,7 @@ export default {
                     page: 1,
                     pageSize: 9,
                     order: 'DESC',
+                    status: true,
                },
                products: [],
                posts: [],
@@ -199,6 +212,7 @@ export default {
                     page: 1,
                     pageSize: 9,
                     order: 'DESC',
+                    status: true,
                },
                activeCategories: '1',
                loading: false,
@@ -219,8 +233,15 @@ export default {
           },
           async getDataProducts() {
                try {
-                    // this.loading = true;
-                    const {data} = await getItem(this.pageItem);
+                    this.loading = true;
+                    const parama = {
+                         page: this.pageItem.page,
+                         pageSize: this.pageItem.pageSize,
+                         order: 'DESC',
+                         status: true,
+                         categoryId: this.activeCategories,
+                    };
+                    const {data} = await getItem(parama);
                     if (data) {
                          this.products = data.data;
                          const pagination = data.pagination;
@@ -231,17 +252,18 @@ export default {
                               page: 1,
                               pageSize: 9,
                               order: 'DESC',
+                              status: true,
                          };
                     }
                } catch (error) {
                     console.log(error);
                } finally {
-                    // this.loading = false;
+                    this.loading = false;
                }
           },
           async getDataPosts() {
                try {
-                    // this.loading = true;
+                    this.loading = true;
                     const {data} = await getPost(this.pagePost);
                     if (data) {
                          this.posts = data.data;
@@ -258,14 +280,16 @@ export default {
                } catch (error) {
                     console.log(error);
                } finally {
-                    // this.loading = false;
+                    this.loading = false;
                }
           },
-          async getDataCategory() {
-               console.log(111111111);
+          changeCategories(page) {
+               this.activeCategories = page;
+               this.getDataProducts();
           },
-          changePage() {
-               console.log(222222);
+          changePage(value) {
+               this.pageItem.page = value;
+               this.getDataProducts();
           },
           numberFormat(value) {
                const numbString = value;

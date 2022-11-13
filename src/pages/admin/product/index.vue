@@ -85,9 +85,13 @@ export default {
           async getData() {
                try {
                     this.loading = true;
-                    const page = this.pagination.currentPage;
-                    const pageSize = this.pagination.pageSize;
-                    const { data } = await getItem({page, pageSize});
+                    const param = {
+                         page: this.pagination.currentPage,
+                         pageSize: this.pagination.pageSize,
+                         order: 'DESC',
+                         status: true,
+                    }
+                    const { data } = await getItem(param);
                     if (data) {
                          this.dataTable = data.data;
                          this.pagination = data.pagination
@@ -156,7 +160,23 @@ export default {
           },
           formatDay(day) {
                return this.$dayjs(day).format('DD-MM-YYYY');
-          }
+          },
+          notification(status, message) {
+               this.$toast[status](message, {
+                    position: "top-right",
+                    timeout: 3000,
+                    closeOnClick: true,
+                    pauseOnFocusLoss: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    draggablePercent: 0.6,
+                    showCloseButtonOnHover: false,
+                    hideProgressBar: true,
+                    closeButton: "button",
+                    icon: true,
+                    rtl: false
+               });
+          },
      },
 }
 </script>

@@ -85,9 +85,13 @@ export default {
           async getData() {
                try {
                     this.loading = true;
-                    const page = this.pagination.currentPage;
-                    const pageSize = this.pagination.pageSize;
-                    const { data } = await getPost({page, pageSize});
+                    const param = {
+                         page: this.pagination.currentPage,
+                         pageSize: this.pagination.pageSize,
+                         order: 'DESC',
+                         status: true,
+                    }
+                    const { data } = await getPost(param);
                     if (data) {
                          this.dataTable = data.data;
                          this.pagination = data.pagination

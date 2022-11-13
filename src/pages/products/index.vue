@@ -58,13 +58,13 @@
                                         </div>
                                    </div>
                               </div>
-                              <div v-if="pageItem.totalPage > 1" class="mt-12">
-                                   <vs-pagination
-                                        :total-pages="pageItem.totalPage"
-                                        :current-page="pageItem.currentPage"
-                                        @change="changePage"
-                                   />
-                              </div>
+                         </div>
+                         <div v-if="pageItem.totalPage > 1" class="mt-12">
+                              <vs-pagination
+                                   :total-pages="pageItem.totalPage"
+                                   :current-page="pageItem.currentPage"
+                                   @change="changePage"
+                              />
                          </div>
                     </template>
                     <template v-else>
@@ -80,7 +80,7 @@
 <script>
 import LoadingVue from '~/components/Loading.vue';
 import BtnShowMoreVue from '~/components/home/BtnShowMore.vue';
-import { getItem } from '~/api/home';
+import { getItem, getCategories } from '~/api/home';
 
 
 export default {
@@ -88,18 +88,30 @@ export default {
           LoadingVue,
           BtnShowMoreVue,
      },
+     async asyncData() {
+          try {
+               const parama = {
+                    page: 1,
+                    pageSize: 10,
+                    order: 'ASC',
+                    status: true,
+               }
+               const { data } = await getCategories(parama);
+               return {
+                    listCategory: data.data,
+                    activeCategories: data.data[0].id,
+               };
+          } catch (error) {
+               console.log(error);
+          }
+     },
      layout: 'home',
      mounted() {
           this.getDataProducts();
      },
      data() {
           return {
-               listCategory: [
-                    {id: '1', name: 'Bếp từ'},
-                    {id: '2', name: 'Hút mùi'},
-                    {id: '3', name: 'Máy rửa bát'},
-                    {id: '4', name: 'Đồ gia dụng'},
-               ],
+               listCategory: [],
                pageItem: {
                     currentPage: null,
                     totalCount: null,
@@ -107,6 +119,7 @@ export default {
                     page: 1,
                     pageSize: 9,
                     order: 'DESC',
+                    status: true,
                },
                products: [],
                loading: false,
@@ -118,7 +131,14 @@ export default {
           async getDataProducts() {
                try {
                     this.loading = true;
-                    const {data} = await getItem(this.pageItem);
+                    const parama = {
+                         page: this.pageItem.page,
+                         pageSize: this.pageItem.pageSize,
+                         order: 'DESC',
+                         status: true,
+                         categoryId: this.activeCategories,
+                    };
+                    const {data} = await getItem(parama);
                     if (data) {
                          this.products = data.data;
                          const pagination = data.pagination;
@@ -129,6 +149,7 @@ export default {
                               page: 1,
                               pageSize: 9,
                               order: 'DESC',
+                              status: true,
                          };
                     }
                } catch (error) {
@@ -136,6 +157,14 @@ export default {
                } finally {
                     this.loading = false;
                }
+          },
+          changeCategories(page) {
+               this.activeCategories = page;
+               this.getDataProducts();
+          },
+          changePage(value) {
+               this.pageItem.page = value;
+               this.getDataProducts();
           },
           numberFormat(value) {
                const numbString = value;
@@ -147,7 +176,7 @@ export default {
                if (id) {
                     this.$router.push(`/products/${id}`);
                }
-          }
+          },
      },
 }
 </script>
