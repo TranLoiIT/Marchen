@@ -3,7 +3,71 @@
           <BannerGroup />
           <div class="mt-5 bg-black py-12">
                <div class="container">
-                    <div class="flex justify-center">
+                    <div class="lg:text-3xl tablet-600:text-2xl text-xl font-bold text-white text-center uppercase my-12">
+                         Danh sách thể loại</div>
+                    <div class="grid lg:grid-cols-4 tablet-600:grid-cols-2 grid-cols-1 gap-8">
+                         <div class="col-span-1 relative" style="background-image: url('~/assets/image/mr-69i.png');">
+                              <img src="~/assets/image/cate4.png" class="h-full rounded-15 object-cover" alt="">
+                              <div class="absolute inset-0 opacity-70 bg-gray-700 rounded-15"></div>
+                              <div class="absolute inset-0">
+                                   <div class="text-white opacity-100 text-3xl font-bold h-full w-full flex justify-center items-center">Bếp từ</div>
+                              </div>
+                              <div class="absolute bottom-2 right-3">
+                                   <div
+                                        @click="$router.push('/products')"
+                                        class="rounded-full w-40 tablet-600:py-3 py-2 tablet-600:px-5 px-2 shadow-2xl bg-white text-center cursor-pointer"
+                                   >
+                                        <p class="text-black tablet-600:text-base text-xs font-medium">Xem sản phẩm</p>
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="col-span-1 relative" style="background-image: url('~/assets/image/mr-69i.png');">
+                              <img src="~/assets/image/cate2.png" class="h-full rounded-15 object-cover" alt="">
+                              <div class="absolute inset-0 opacity-70 bg-gray-700 rounded-15"></div>
+                              <div class="absolute inset-0">
+                                   <div class="text-white opacity-100 text-3xl font-bold h-full w-full flex justify-center items-center">Hút mùi</div>
+                              </div>
+                              <div class="absolute bottom-2 right-3">
+                                   <div
+                                        @click="$router.push('/products')"
+                                        class="rounded-full w-40 tablet-600:py-3 py-2 tablet-600:px-5 px-2 shadow-2xl bg-white text-center cursor-pointer"
+                                   >
+                                        <p class="text-black tablet-600:text-base text-xs font-medium">Xem sản phẩm</p>
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="col-span-1 relative" style="background-image: url('~/assets/image/mr-69i.png');">
+                              <img src="~/assets/image/cate1.png" class="h-full rounded-15 object-cover" alt="">
+                              <div class="absolute inset-0 opacity-70 bg-gray-700 rounded-15"></div>
+                              <div class="absolute inset-0">
+                                   <div class="text-white opacity-100 text-3xl font-bold h-full w-full flex justify-center items-center">Máy rửa bát</div>
+                              </div>
+                              <div class="absolute bottom-2 right-3">
+                                   <div
+                                        @click="$router.push('/products')"
+                                        class="rounded-full w-40 tablet-600:py-3 py-2 tablet-600:px-5 px-2 shadow-2xl bg-white text-center cursor-pointer"
+                                   >
+                                        <p class="text-black tablet-600:text-base text-xs font-medium">Xem sản phẩm</p>
+                                   </div>
+                              </div>
+                         </div>
+                         <div class="col-span-1 relative" style="background-image: url('~/assets/image/mr-69i.png');">
+                              <img src="~/assets/image/cate3.png" class="h-full rounded-15 object-cover" alt="">
+                              <div class="absolute inset-0 opacity-70 bg-gray-700 rounded-15"></div>
+                              <div class="absolute inset-0">
+                                   <div class="text-white opacity-100 text-3xl font-bold h-full w-full flex justify-center items-center">Đồ gia dụng</div>
+                              </div>
+                              <div class="absolute bottom-2 right-3">
+                                   <div
+                                        @click="$router.push('/products')"
+                                        class="rounded-full w-40 tablet-600:py-3 py-2 tablet-600:px-5 px-2 shadow-2xl bg-white text-center cursor-pointer"
+                                   >
+                                        <p class="text-black tablet-600:text-base text-xs font-medium">Xem sản phẩm</p>
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+                    <!-- <div class="flex justify-center">
                          <div class="text-white lg:mt-5 border-b-2 :border-white lg:w-2/3 w-full tablet-640:text-lg text-xs font-medium">
                               <div class="grid grid-cols-4 gap-2">
                                    <div
@@ -24,7 +88,7 @@
                                    class="col-span-1 bg-white rounded-15 shadow-xl height--card"
                               >
                                    <img
-                                        class="w-full rounded-t-15 object-cover height--image py-2"
+                                        class="w-full height--image_post object-cover py-3 px-1"
                                         :src="`${URL}/uploads/${item.img_item}`"
                                         :alt="item.img_item"
                                    >
@@ -33,7 +97,7 @@
                                              class="lg:text-2xl tablet-600:text-xl text-sm font-bold text-black truncate w-full"
                                         >MODEL: {{ item.model }}</div>
                                         <div class="mt-3 lg:text-lg tablet-600:text-sm text-xs text-gray-500 truncate-line__2 lg:h-14 tablet-600:h-10 h-8">
-                                             {{ item.description }}
+                                             <span v-html="formatText(item.description)"></span>
                                         </div>
                                         <div class="mt-3 tablet-600:flex justify-between items-center">
                                              <div class="lg:text-2xl tablet-600:text-xl text-sm font-bold text-black truncate">
@@ -58,7 +122,7 @@
                          <div class="w-full text-center mt-12 text-white">
                               ( sản phẩm trống ! )
                          </div>
-                    </template>
+                    </template> -->
                </div>
           </div>
           <div class="my-12 container tablet-600:h-420px h-256px">
@@ -194,16 +258,6 @@ export default {
      data() {
           return {
                listCategory: [],
-               pageItem: {
-                    currentPage: null,
-                    totalCount: null,
-                    totalPage: null,
-                    page: 1,
-                    pageSize: 9,
-                    order: 'DESC',
-                    status: true,
-               },
-               products: [],
                posts: [],
                pagePost: {
                     currentPage: null,
@@ -223,38 +277,7 @@ export default {
           async getData() {
                try {
                     this.loading = true;
-                    await this.getDataProducts();
                     await this.getDataPosts();
-               } catch (error) {
-                    console.log(error);
-               } finally {
-                    this.loading = false;
-               }
-          },
-          async getDataProducts() {
-               try {
-                    this.loading = true;
-                    const parama = {
-                         page: this.pageItem.page,
-                         pageSize: this.pageItem.pageSize,
-                         order: 'DESC',
-                         status: true,
-                         categoryId: this.activeCategories,
-                    };
-                    const {data} = await getItem(parama);
-                    if (data) {
-                         this.products = data.data;
-                         const pagination = data.pagination;
-                         this.pageItem = {
-                              currentPage: pagination.currentPage,
-                              totalCount: pagination.totalCount,
-                              totalPage: pagination.totalPage,
-                              page: 1,
-                              pageSize: 9,
-                              order: 'DESC',
-                              status: true,
-                         };
-                    }
                } catch (error) {
                     console.log(error);
                } finally {
@@ -282,20 +305,6 @@ export default {
                } finally {
                     this.loading = false;
                }
-          },
-          changeCategories(page) {
-               this.activeCategories = page;
-               this.getDataProducts();
-          },
-          changePage(value) {
-               this.pageItem.page = value;
-               this.getDataProducts();
-          },
-          numberFormat(value) {
-               const numbString = value;
-               const regex = /\B(?=(\d{3})+(?!\d))/g;
-               const res = numbString.replace(regex, ',');
-               return res;
           },
      },
    

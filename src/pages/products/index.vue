@@ -1,6 +1,6 @@
 <template>
      <div class="lg:mt-24 mt-20">
-          <div class="mt-5 py-12">
+          <div id="list-products" class="mt-5 py-12">
                <div class="container mb-10">
                     <div class="flex justify-center my-5">
                          <div class="w-4/5 flex items-center">
@@ -23,21 +23,21 @@
                                         v-for="(item, index) in listCategory"
                                         :key="index"
                                         :class="(activeCategories === item.id) ? 'bg-black text-white border__menu' : ''"
-                                        @click="activeCategories = item.id"
+                                        @click="changeCategories(item.id)"
                                         class="col-span-1 py-3 flex justify-center cursor-pointer"
                                    >{{ item.name }}</div>
                               </div>
                          </div>
                     </div>
                     <template v-if="products.length > 0">
-                         <div class="grid desktop-xs:grid-cols-3 grid-cols-2 lg:gap-8 gap-2 lg:mt-20 mt-10">
+                         <div class="grid desktop-xs:grid-cols-3 tablet-600:grid-cols-2 grid-cols-1 lg:gap-8 gap-2 lg:mt-20 mt-10">
                               <div
                                    v-for="(item, index) in products"
                                    :key="index"
-                                   class="col-span-1 bg-white rounded-15 shadow-2xl height--card"
+                                   class="col-span-1 bg-white rounded-15 shadow-xl height--card"
                               >
                                    <img
-                                        class="w-full rounded-t-15 object-cover height--image"
+                                        class="w-full height--image object-cover py-3 px-1"
                                         :src="`${URL}/uploads/${item.img_item}`"
                                         :alt="item.img_item"
                                    >
@@ -46,14 +46,14 @@
                                              class="lg:text-2xl tablet-600:text-xl text-sm font-bold text-black truncate w-full"
                                         >MODEL: {{ item.model }}</div>
                                         <div class="mt-3 lg:text-lg tablet-600:text-sm text-xs text-gray-500 truncate-line__2 lg:h-14 tablet-600:h-10 h-8">
-                                             {{ item.description }}
+                                             <span v-html="formatText(item.description)"></span>
                                         </div>
                                         <div class="mt-3 tablet-600:flex justify-between items-center">
                                              <div class="lg:text-2xl tablet-600:text-xl text-sm font-bold text-black truncate">
                                                   {{ numberFormat(item.price) }} VNĐ
                                              </div>
                                              <div class="mt-3 tablet-600:mt-0">
-                                                  <BtnShowMoreVue @on-Click="hanlderClick(item.id)" />
+                                                  <BtnShowMoreVue @on-Click="$router.push(`/products/${item.id}`)" />
                                              </div>
                                         </div>
                                    </div>
@@ -107,6 +107,7 @@ export default {
      },
      layout: 'home',
      mounted() {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
           this.getDataProducts();
      },
      data() {
@@ -118,7 +119,7 @@ export default {
                     totalPage: null,
                     page: 1,
                     pageSize: 9,
-                    order: 'DESC',
+                    order: 'ASC',
                     status: true,
                },
                products: [],
@@ -134,7 +135,7 @@ export default {
                     const parama = {
                          page: this.pageItem.page,
                          pageSize: this.pageItem.pageSize,
-                         order: 'DESC',
+                         order: 'ASC',
                          status: true,
                          categoryId: this.activeCategories,
                     };
@@ -142,13 +143,14 @@ export default {
                     if (data) {
                          this.products = data.data;
                          const pagination = data.pagination;
+                         console.log(pagination);
                          this.pageItem = {
                               currentPage: pagination.currentPage,
                               totalCount: pagination.totalCount,
                               totalPage: pagination.totalPage,
                               page: 1,
                               pageSize: 9,
-                              order: 'DESC',
+                              order: 'ASC',
                               status: true,
                          };
                     }
@@ -162,9 +164,14 @@ export default {
                this.activeCategories = page;
                this.getDataProducts();
           },
-          changePage(value) {
+          async changePage(value) {
                this.pageItem.page = value;
-               this.getDataProducts();
+               await this.getDataProducts();
+               window.scrollTo({ top: 0, behavior: 'smooth' });
+          },
+          formatText(value) {
+               const data = value;
+               return data.replace(/\n/g, "<br />");
           },
           numberFormat(value) {
                const numbString = value;

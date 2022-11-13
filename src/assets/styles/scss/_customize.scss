@@ -50,6 +50,16 @@
     }
 }
 
+.baner-h {
+    height: 260px;
+}
+
+.VueCarousel-dot {
+    &:focus {
+        outline: none !important;
+    }
+}
+
 @media screen and (min-width: 768px) {
     .container {
         padding: 0 30px !important;
@@ -62,7 +72,10 @@
         &--image {
             height: 320px !important;
         }
-   }
+    }
+    .baner-h {
+        height: 320px;
+    }
 }
 @media screen and (min-width: 1024px) {
     .container {
@@ -72,12 +85,15 @@
     
     .height {
         &--card {
-            height: 560px !important;
+            height: 500px !important;
         }
         &--image {
-            height: 360px !important;
+            height: 280px !important;
         }
-   }
+    }
+    .baner-h {
+        height: 1024px;
+    }
 }
 @media screen and (min-width: 1200px) {
     .container {
