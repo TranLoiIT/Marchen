@@ -82,7 +82,6 @@ import LoadingVue from '~/components/Loading.vue';
 import BtnShowMoreVue from '~/components/home/BtnShowMore.vue';
 import { getItem, getCategories } from '~/api/home';
 
-
 export default {
      components: {
           LoadingVue,
@@ -110,6 +109,16 @@ export default {
           window.scrollTo({ top: 0, behavior: 'smooth' });
           this.getDataProducts();
      },
+     computed: {
+          sreach () {
+               return this.$route.query?.sreach || '';
+          }
+     },
+     watch: {
+          sreach () {
+               this.getDataProducts()
+          }
+     },
      data() {
           return {
                listCategory: [],
@@ -131,8 +140,10 @@ export default {
      methods: {
           async getDataProducts() {
                try {
+                    const search = this.$route.query?.sreach || '';
                     this.loading = true;
                     const parama = {
+                         search: search,
                          page: this.pageItem.page,
                          pageSize: this.pageItem.pageSize,
                          order: 'ASC',
@@ -143,7 +154,6 @@ export default {
                     if (data) {
                          this.products = data.data;
                          const pagination = data.pagination;
-                         console.log(pagination);
                          this.pageItem = {
                               currentPage: pagination.currentPage,
                               totalCount: pagination.totalCount,
@@ -157,7 +167,9 @@ export default {
                } catch (error) {
                     console.log(error);
                } finally {
-                    this.loading = false;
+                    setTimeout(() => {
+                         this.loading = false;
+                    }, 500)
                }
           },
           changeCategories(page) {

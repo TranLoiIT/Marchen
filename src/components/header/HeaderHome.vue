@@ -81,7 +81,7 @@ export default {
      methods: {
           hanlderSreach(event) {
                this.sreach = event;
-               //router.push('/sreach');
+               this.$router.push({ path: '/products', query: {sreach: this.sreach} });
           },
           hanlderClick(value) {
                this.showMenu = !value;

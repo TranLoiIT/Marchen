@@ -6,63 +6,47 @@
                     <div class="lg:text-3xl tablet-600:text-2xl text-xl font-bold text-white text-center uppercase my-12">
                          Danh sách thể loại</div>
                     <div class="grid lg:grid-cols-4 tablet-600:grid-cols-2 grid-cols-1 gap-8">
-                         <div class="col-span-1 relative" style="background-image: url('~/assets/image/mr-69i.png');">
-                              <img src="~/assets/image/cate4.png" class="h-full rounded-15 object-cover" alt="">
-                              <div class="absolute inset-0 opacity-70 bg-gray-700 rounded-15"></div>
-                              <div class="absolute inset-0">
-                                   <div class="text-white opacity-100 text-3xl font-bold h-full w-full flex justify-center items-center">Bếp từ</div>
-                              </div>
+                         <div class="col-span-1 relative cursor-pointer card" @click="$router.push('/products')">
+                              <img src="~/assets/image/bep-tu.jpg" class="h-full rounded-15 object-cover" alt="">
                               <div class="absolute bottom-2 right-3">
                                    <div
-                                        @click="$router.push('/products')"
-                                        class="rounded-full w-40 tablet-600:py-3 py-2 tablet-600:px-5 px-2 shadow-2xl bg-white text-center cursor-pointer"
+                                        class="rounded-full tablet-600:py-3 py-2 tablet-600:px-6 px-3 shadow-2xl bg-white text-center cursor-pointer"
                                    >
-                                        <p class="text-black tablet-600:text-base text-xs font-medium">Xem sản phẩm</p>
+                                        <div class="text-black tablet-600:text-xl text-base font-bold">Bếp từ</div>
+                                        <div class="text-black tablet-600:text-base text-xl card--text font-medium underline">Xem sản phẩm</div>
                                    </div>
                               </div>
                          </div>
-                         <div class="col-span-1 relative" style="background-image: url('~/assets/image/mr-69i.png');">
-                              <img src="~/assets/image/cate2.png" class="h-full rounded-15 object-cover" alt="">
-                              <div class="absolute inset-0 opacity-70 bg-gray-700 rounded-15"></div>
-                              <div class="absolute inset-0">
-                                   <div class="text-white opacity-100 text-3xl font-bold h-full w-full flex justify-center items-center">Hút mùi</div>
-                              </div>
+                         <div class="col-span-1 relative cursor-pointer card" @click="$router.push('/products')">
+                              <img src="~/assets/image/hut-mui.jpg" class="h-full rounded-15 object-cover" alt="">
                               <div class="absolute bottom-2 right-3">
                                    <div
-                                        @click="$router.push('/products')"
-                                        class="rounded-full w-40 tablet-600:py-3 py-2 tablet-600:px-5 px-2 shadow-2xl bg-white text-center cursor-pointer"
+                                        class="rounded-full tablet-600:py-3 py-2 tablet-600:px-6 px-3 shadow-2xl bg-white text-center cursor-pointer"
                                    >
-                                        <p class="text-black tablet-600:text-base text-xs font-medium">Xem sản phẩm</p>
+                                        <div class="text-black tablet-600:text-xl text-base font-bold">Hút mùi</div>
+                                        <div class="text-black tablet-600:text-base text-xl card--text font-medium underline">Xem sản phẩm</div>
                                    </div>
                               </div>
                          </div>
-                         <div class="col-span-1 relative" style="background-image: url('~/assets/image/mr-69i.png');">
-                              <img src="~/assets/image/cate1.png" class="h-full rounded-15 object-cover" alt="">
-                              <div class="absolute inset-0 opacity-70 bg-gray-700 rounded-15"></div>
-                              <div class="absolute inset-0">
-                                   <div class="text-white opacity-100 text-3xl font-bold h-full w-full flex justify-center items-center">Máy rửa bát</div>
-                              </div>
+                         <div class="col-span-1 relative cursor-pointer card" @click="$router.push('/products')">
+                              <img src="~/assets/image/may-rua-bat.png" class="h-full rounded-15 object-cover" alt="">
                               <div class="absolute bottom-2 right-3">
                                    <div
-                                        @click="$router.push('/products')"
-                                        class="rounded-full w-40 tablet-600:py-3 py-2 tablet-600:px-5 px-2 shadow-2xl bg-white text-center cursor-pointer"
+                                        class="rounded-full tablet-600:py-3 py-2 tablet-600:px-6 px-3 shadow-2xl bg-white text-center cursor-pointer"
                                    >
-                                        <p class="text-black tablet-600:text-base text-xs font-medium">Xem sản phẩm</p>
+                                        <div class="text-black tablet-600:text-xl text-base font-bold">Máy rửa bát</div>
+                                        <div class="text-black tablet-600:text-base text-xl card--text font-medium underline">Xem sản phẩm</div>
                                    </div>
                               </div>
                          </div>
-                         <div class="col-span-1 relative" style="background-image: url('~/assets/image/mr-69i.png');">
-                              <img src="~/assets/image/cate3.png" class="h-full rounded-15 object-cover" alt="">
-                              <div class="absolute inset-0 opacity-70 bg-gray-700 rounded-15"></div>
-                              <div class="absolute inset-0">
-                                   <div class="text-white opacity-100 text-3xl font-bold h-full w-full flex justify-center items-center">Đồ gia dụng</div>
-                              </div>
+                         <div class="col-span-1 relative cursor-pointer card" @click="$router.push('/products')">
+                              <img src="~/assets/image/do-gia-dung.jpg" class="h-full rounded-15 object-cover" alt="">
                               <div class="absolute bottom-2 right-3">
                                    <div
-                                        @click="$router.push('/products')"
-                                        class="rounded-full w-40 tablet-600:py-3 py-2 tablet-600:px-5 px-2 shadow-2xl bg-white text-center cursor-pointer"
+                                        class="rounded-full tablet-600:py-3 py-2 tablet-600:px-6 px-3 shadow-2xl bg-white text-center cursor-pointer"
                                    >
-                                        <p class="text-black tablet-600:text-base text-xs font-medium">Xem sản phẩm</p>
+                                        <div class="text-black tablet-600:text-xl text-base font-bold">Đồ gia dụng</div>
+                                        <div class="text-black tablet-600:text-base text-xl card--text font-medium underline">Xem sản phẩm</div>
                                    </div>
                               </div>
                          </div>
