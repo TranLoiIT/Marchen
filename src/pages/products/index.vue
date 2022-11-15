@@ -87,7 +87,7 @@ export default {
           LoadingVue,
           BtnShowMoreVue,
      },
-     async asyncData() {
+     async asyncData({ query }) {
           try {
                const parama = {
                     page: 1,
@@ -96,9 +96,10 @@ export default {
                     status: true,
                }
                const { data } = await getCategories(parama);
+               const activeCategories = query.categoryId || data.data[0].id;
                return {
                     listCategory: data.data,
-                    activeCategories: data.data[0].id,
+                    activeCategories: activeCategories,
                };
           } catch (error) {
                console.log(error);
@@ -110,12 +111,12 @@ export default {
           this.getDataProducts();
      },
      computed: {
-          sreach () {
-               return this.$route.query?.sreach || '';
+          search () {
+               return this.$route.query?.search || '';
           }
      },
      watch: {
-          sreach () {
+          search () {
                this.getDataProducts()
           }
      },
@@ -130,6 +131,7 @@ export default {
                     pageSize: 9,
                     order: 'ASC',
                     status: true,
+                    search: ''
                },
                products: [],
                loading: false,
@@ -140,7 +142,7 @@ export default {
      methods: {
           async getDataProducts() {
                try {
-                    const search = this.$route.query?.sreach || '';
+                    const search = this.$route.query?.search || '';
                     this.loading = true;
                     const parama = {
                          search: search,
@@ -162,6 +164,7 @@ export default {
                               pageSize: 9,
                               order: 'ASC',
                               status: true,
+                              search: search,
                          };
                     }
                } catch (error) {
@@ -173,7 +176,9 @@ export default {
                }
           },
           changeCategories(page) {
+               console.log(page);
                this.activeCategories = page;
+               this.$router.push({ path: '/products', query: {categoryId: page, search: this.pageItem.search} });
                this.getDataProducts();
           },
           async changePage(value) {

@@ -1,7 +1,7 @@
 <template>
      <div
           class="w-full text-base px-4 py-2 border rounded-3xl border-gray-300 flex justify-start items-center"
-          @click="hanlderClick"
+          @click="hanlderFocus"
      >
           <div class="lg:mr-2 -ml-2" @click="hanlderClick">
                <img class="lg:h-6 lg:w-6 w-4 h-4" src="~/assets/image/sreach.svg" alt="sreach">
@@ -45,15 +45,14 @@
                },
           },
           methods: {
-               hanlderClick() {
+               hanlderFocus() {
                     const input = this.$refs.inputSreach;
-                    if (this.inputValue) {
-                         this.$emit('value-sreach', this.inputValue);
-                    } else {
-                         if (input) {
-                              input.focus();
-                         }
+                    if (input) {
+                         input.focus();
                     }
+               },
+               hanlderClick() {
+                    this.$emit('value-sreach', this.inputValue);
                },
           },
      }

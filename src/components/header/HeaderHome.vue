@@ -10,25 +10,22 @@
                <div class="container">
                     <div class=" grid grid-cols-12 gap-5">
                          <div class="lg:col-span-3 col-span-6">
-                              <img @click="$router.push('/')" class="header--h cursor-pointer" src="~/assets/image/logo.png" />
+                              <img @click="$router.push('/'); sreach = ''" class="header--h cursor-pointer" src="~/assets/image/logo.png" />
                               <!-- <img @click="$router.push('/')" class="cursor-pointer" src="~/assets/image/logo.png" style="height: 78px !important;" /> -->
                          </div>
                          <div class="col-span-6 lg:flex hidden items-center xl:gap-8 desktop-md:gap-12">
-                              <nuxt-link
+                              <div
                                    class="text-base font-semibold uppercase cursor-pointer hover:text-bgHeaderBule hover:opacity-50 mr-6"
-                                   @click="showMenu = false"
-                                   to="/"
-                              >Trang chủ</nuxt-link>
-                              <nuxt-link
+                                   @click="showMenu = false; $router.push('/'); sreach = ''"
+                              >Trang chủ</div>
+                              <div
                                    class="text-base font-semibold uppercase cursor-pointer hover:text-bgHeaderBule hover:opacity-50 mr-6"
-                                   @click="showMenu = false"
-                                   to="/products"
-                              >Sản phẩm</nuxt-link>
-                              <nuxt-link
+                                   @click="showMenu = false; $router.push('/products'); sreach = ''"
+                              >Sản phẩm</div>
+                              <div
                                    class="text-base font-semibold uppercase cursor-pointer hover:text-bgHeaderBule hover:opacity-50"
-                                   @click="showMenu = false"
-                                   to="/news"
-                              >Bài viết</nuxt-link>
+                                   @click="showMenu = false; $router.push('/news'); sreach = ''"
+                              >Bài viết</div>
                          </div>
                          <div class="lg:col-span-3 col-span-6 flex justify-end items-center">
                               <div class="w-4/5 tablet-768:flex hidden">
@@ -49,15 +46,15 @@
                     <div class="my-5 ml-5">
                          <div
                               class="text-base font-semibold uppercase cursor-pointer hover:text-bgHeaderBule hover:opacity-50 mr-6 border-b border-gray-400 pb-2"
-                              @click="showMenu = false; $router.push('/')"
+                              @click="showMenu = false; $router.push('/'); sreach = ''"
                          >Trang chủ</div>
                          <div
                               class="mt-3 text-base font-semibold uppercase cursor-pointer hover:text-bgHeaderBule hover:opacity-50 mr-6 border-b border-gray-400 pb-2"
-                              @click="showMenu = false; $router.push('/products')"
+                              @click="showMenu = false; $router.push('/products'); sreach = ''"
                          >Sản phẩm</div>
                          <div
                               class="mt-3 text-base font-semibold uppercase cursor-pointer hover:text-bgHeaderBule hover:opacity-50 mr-6 border-b border-gray-400 pb-2"
-                              @click="showMenu = false; $router.push('/news')"
+                              @click="showMenu = false; $router.push('/news'); sreach = ''"
                          >Bài viết</div>
                     </div>
                </div>
@@ -78,10 +75,19 @@ export default {
                showMenu: false,
           }
      },
+     mounted() {
+          this.sreach = this.$route.query?.search || '';
+     },
      methods: {
           hanlderSreach(event) {
                this.sreach = event;
-               this.$router.push({ path: '/products', query: {sreach: this.sreach} });
+
+               let query = { search: this.sreach };
+               if (this.$route.query?.categoryId) {
+                    const categoryId = this.$route.query.categoryId;
+                    query = { categoryId , ...query}
+               }
+               this.$router.push({ path: '/products', query: query });
           },
           hanlderClick(value) {
                this.showMenu = !value;

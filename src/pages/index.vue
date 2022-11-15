@@ -5,49 +5,25 @@
                <div class="container">
                     <div class="lg:text-3xl tablet-600:text-2xl text-xl font-bold text-white text-center uppercase my-12">
                          Danh sách thể loại</div>
-                    <div class="grid lg:grid-cols-4 tablet-600:grid-cols-2 grid-cols-1 gap-8">
-                         <div class="col-span-1 relative cursor-pointer card" @click="$router.push('/products')">
-                              <img src="~/assets/image/bep-tu.jpg" class="image-cate rounded-15 object-cover" alt="">
-                              <div class="absolute bottom-2 right-3">
-                                   <div
-                                        class="rounded-full tablet-600:py-3 py-2 tablet-600:px-6 px-3 shadow-2xl bg-white text-center cursor-pointer"
-                                   >
-                                        <div class="text-black text-xl font-bold">Bếp từ</div>
-                                        <div class="text-black tablet-600:text-base text-xs card--text font-medium underline">Xem sản phẩm</div>
-                                   </div>
+                    <div class="grid lg:grid-cols-2 tablet-600:grid-cols-2 grid-cols-1 gap-x-40 gap-y-10">
+                         <div
+                              v-for="(item, index) in listcate"
+                              :key="index"
+                              class="col-span-1 cursor-pointer card bg-white rounded-15 p-4"
+                              @click="hanlderCategories(item.name)"
+                         >
+                              <div class="flex justify-center">
+                                   <img :src="require(`~/assets/image/${item.image}`)" class="image-cate object-cover" alt="" />
                               </div>
-                         </div>
-                         <div class="col-span-1 relative cursor-pointer card" @click="$router.push('/products')">
-                              <img src="~/assets/image/hut-mui.jpg" class="image-cate rounded-15 object-cover" alt="">
-                              <div class="absolute bottom-2 right-3">
-                                   <div
-                                        class="rounded-full tablet-600:py-3 py-2 tablet-600:px-6 px-3 shadow-2xl bg-white text-center cursor-pointer"
-                                   >
-                                        <div class="text-black text-xl font-bold">Hút mùi</div>
-                                        <div class="text-black tablet-600:text-base text-xs card--text font-medium underline">Xem sản phẩm</div>
+                              <div
+                                   class="text-center cursor-pointer mt-5"
+                              >
+                                   <div class="flex items-center justify-center">
+                                        <div class=" border-b-2 border-black w-1/5 mr-3"></div>
+                                        <div class="text-black text-xl font-bold">{{ item.name }}</div>
+                                        <div class=" border-b-2 border-black w-1/5 ml-3"></div>
                                    </div>
-                              </div>
-                         </div>
-                         <div class="col-span-1 relative cursor-pointer card" @click="$router.push('/products')">
-                              <img src="~/assets/image/may-rua-bat.png" class="image-cate rounded-15 object-cover" alt="">
-                              <div class="absolute bottom-2 right-3">
-                                   <div
-                                        class="rounded-full tablet-600:py-3 py-2 tablet-600:px-6 px-3 shadow-2xl bg-white text-center cursor-pointer"
-                                   >
-                                        <div class="text-black text-xl font-bold">Máy rửa bát</div>
-                                        <div class="text-black tablet-600:text-base text-xs card--text font-medium underline">Xem sản phẩm</div>
-                                   </div>
-                              </div>
-                         </div>
-                         <div class="col-span-1 relative cursor-pointer card" @click="$router.push('/products')">
-                              <img src="~/assets/image/do-gia-dung.jpg" class="image-cate rounded-15 object-cover" alt="">
-                              <div class="absolute bottom-2 right-3">
-                                   <div
-                                        class="rounded-full tablet-600:py-3 py-2 tablet-600:px-6 px-3 shadow-2xl bg-white text-center cursor-pointer"
-                                   >
-                                        <div class="text-black text-xl font-bold">Đồ gia dụng</div>
-                                        <div class="text-black tablet-600:text-base text-xs card--text font-medium underline">Xem sản phẩm</div>
-                                   </div>
+                                   <div class="text-black tablet-600:text-base text-xs card--text font-medium underline">Xem sản phẩm</div>
                               </div>
                          </div>
                     </div>
@@ -208,7 +184,8 @@ import { Carousel, Slide } from 'vue-carousel';
 import BannerGroup from '@/components/home/BannerGroup'
 import LoadingVue from '~/components/Loading.vue';
 import BtnShowMoreVue from '~/components/home/BtnShowMore.vue';
-import { getItem, getPost, getCategories } from '~/api/home';
+import { getPost, getCategories } from '~/api/home';
+import path from 'path';
    
 export default {
      components: {
@@ -241,6 +218,28 @@ export default {
      },
      data() {
           return {
+               listcate: [
+                    {
+                         id: 1,
+                         name: 'Bếp từ',
+                         image: 'bep-tu.jpg'
+                    },
+                    {
+                         id: 2,
+                         name: 'Hút mùi',
+                         image: 'hut-mui.jpg'
+                    },
+                    {
+                         id: 3,
+                         name: 'Máy rửa bát',
+                         image: 'may-rua-bat.png'
+                    },
+                    {
+                         id: 4,
+                         name: 'Đồ gia dụng',
+                         image: 'do-gia-dung.jpg'
+                    },
+               ],
                listCategory: [],
                posts: [],
                pagePost: {
@@ -290,6 +289,14 @@ export default {
                     this.loading = false;
                }
           },
+          hanlderCategories(value) {
+               if (this.listCategory.length > 0) {
+                    const data = this.listCategory.filter((item) => item.name === value);
+                    if (data.length > 0) {
+                         this.$router.push({ path: '/products', query: {categoryId: data[0].id} });
+                    } 
+               }
+          }
      },
    
 };
