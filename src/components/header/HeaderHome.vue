@@ -44,6 +44,10 @@
           <div class="lg:hidden">
                <div v-show="showMenu" class="memu">
                     <div class="my-5 ml-5">
+                         <div class="mr-5 mb-10">
+                              <p>Tìm kiếm sản Phẩm: </p>
+                              <BaseInputSreachVue v-model="sreach" @value-sreach="hanlderSreach" />
+                         </div>
                          <div
                               class="text-base font-semibold uppercase cursor-pointer hover:text-bgHeaderBule hover:opacity-50 mr-6 border-b border-gray-400 pb-2"
                               @click="showMenu = false; $router.push('/'); sreach = ''"
@@ -81,7 +85,7 @@ export default {
      methods: {
           hanlderSreach(event) {
                this.sreach = event;
-
+               this.showMenu = false;
                let query = { search: this.sreach };
                if (this.$route.query?.categoryId) {
                     const categoryId = this.$route.query.categoryId;

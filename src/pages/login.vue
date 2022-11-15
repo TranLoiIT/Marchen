@@ -12,7 +12,6 @@
                <div class="flex-col flex self-center sm:pr-10 w-2/5 z-10">
                <div class="self-start hidden lg:flex flex-col text-white">
                     <h1 class="mb-3 font-bold text-5xl">Chào mừng đến Marchen</h1>
-                    <p class="pl-3">Công ty cổ phần ...</p>
                </div>
                </div>
                <div class="flex justify-center self-center z-10">
