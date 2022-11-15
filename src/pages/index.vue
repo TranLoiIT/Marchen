@@ -7,7 +7,7 @@
                          Danh sách thể loại</div>
                     <div class="grid lg:grid-cols-4 tablet-600:grid-cols-2 grid-cols-1 gap-8">
                          <div class="col-span-1 relative cursor-pointer card" @click="$router.push('/products')">
-                              <img src="~/assets/image/bep-tu.jpg" class="h-full rounded-15 object-cover" alt="">
+                              <img src="~/assets/image/bep-tu.jpg" class="image-cate rounded-15 object-cover" alt="">
                               <div class="absolute bottom-2 right-3">
                                    <div
                                         class="rounded-full tablet-600:py-3 py-2 tablet-600:px-6 px-3 shadow-2xl bg-white text-center cursor-pointer"
@@ -18,7 +18,7 @@
                               </div>
                          </div>
                          <div class="col-span-1 relative cursor-pointer card" @click="$router.push('/products')">
-                              <img src="~/assets/image/hut-mui.jpg" class="h-full rounded-15 object-cover" alt="">
+                              <img src="~/assets/image/hut-mui.jpg" class="image-cate rounded-15 object-cover" alt="">
                               <div class="absolute bottom-2 right-3">
                                    <div
                                         class="rounded-full tablet-600:py-3 py-2 tablet-600:px-6 px-3 shadow-2xl bg-white text-center cursor-pointer"
@@ -29,7 +29,7 @@
                               </div>
                          </div>
                          <div class="col-span-1 relative cursor-pointer card" @click="$router.push('/products')">
-                              <img src="~/assets/image/may-rua-bat.png" class="h-full rounded-15 object-cover" alt="">
+                              <img src="~/assets/image/may-rua-bat.png" class="image-cate rounded-15 object-cover" alt="">
                               <div class="absolute bottom-2 right-3">
                                    <div
                                         class="rounded-full tablet-600:py-3 py-2 tablet-600:px-6 px-3 shadow-2xl bg-white text-center cursor-pointer"
@@ -40,7 +40,7 @@
                               </div>
                          </div>
                          <div class="col-span-1 relative cursor-pointer card" @click="$router.push('/products')">
-                              <img src="~/assets/image/do-gia-dung.jpg" class="h-full rounded-15 object-cover" alt="">
+                              <img src="~/assets/image/do-gia-dung.jpg" class="image-cate rounded-15 object-cover" alt="">
                               <div class="absolute bottom-2 right-3">
                                    <div
                                         class="rounded-full tablet-600:py-3 py-2 tablet-600:px-6 px-3 shadow-2xl bg-white text-center cursor-pointer"

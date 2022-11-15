@@ -54,8 +54,8 @@
     height: 260px;
 }
 
-.object-cover {
-    -o-object-fit: cover;
+.image-cate {
+    height: 356px;
 }
 
 .VueCarousel-dot {
@@ -83,6 +83,9 @@
     }
     .baner-h {
         height: 320px;
+    }
+    .image-cate {
+        height: 100%;
     }
 }
 @media screen and (min-width: 1024px) {
