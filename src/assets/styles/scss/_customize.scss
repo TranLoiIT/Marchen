@@ -54,6 +54,10 @@
     height: 260px;
 }
 
+.object-cover {
+    -o-object-fit: cover;
+}
+
 .VueCarousel-dot {
     &:focus {
         outline: none !important;

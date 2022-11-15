@@ -12,8 +12,8 @@
                                    <div
                                         class="rounded-full tablet-600:py-3 py-2 tablet-600:px-6 px-3 shadow-2xl bg-white text-center cursor-pointer"
                                    >
-                                        <div class="text-black tablet-600:text-xl text-base font-bold">Bếp từ</div>
-                                        <div class="text-black tablet-600:text-base text-xl card--text font-medium underline">Xem sản phẩm</div>
+                                        <div class="text-black text-xl font-bold">Bếp từ</div>
+                                        <div class="text-black tablet-600:text-base text-xs card--text font-medium underline">Xem sản phẩm</div>
                                    </div>
                               </div>
                          </div>
@@ -23,8 +23,8 @@
                                    <div
                                         class="rounded-full tablet-600:py-3 py-2 tablet-600:px-6 px-3 shadow-2xl bg-white text-center cursor-pointer"
                                    >
-                                        <div class="text-black tablet-600:text-xl text-base font-bold">Hút mùi</div>
-                                        <div class="text-black tablet-600:text-base text-xl card--text font-medium underline">Xem sản phẩm</div>
+                                        <div class="text-black text-xl font-bold">Hút mùi</div>
+                                        <div class="text-black tablet-600:text-base text-xs card--text font-medium underline">Xem sản phẩm</div>
                                    </div>
                               </div>
                          </div>
@@ -34,8 +34,8 @@
                                    <div
                                         class="rounded-full tablet-600:py-3 py-2 tablet-600:px-6 px-3 shadow-2xl bg-white text-center cursor-pointer"
                                    >
-                                        <div class="text-black tablet-600:text-xl text-base font-bold">Máy rửa bát</div>
-                                        <div class="text-black tablet-600:text-base text-xl card--text font-medium underline">Xem sản phẩm</div>
+                                        <div class="text-black text-xl font-bold">Máy rửa bát</div>
+                                        <div class="text-black tablet-600:text-base text-xs card--text font-medium underline">Xem sản phẩm</div>
                                    </div>
                               </div>
                          </div>
@@ -45,8 +45,8 @@
                                    <div
                                         class="rounded-full tablet-600:py-3 py-2 tablet-600:px-6 px-3 shadow-2xl bg-white text-center cursor-pointer"
                                    >
-                                        <div class="text-black tablet-600:text-xl text-base font-bold">Đồ gia dụng</div>
-                                        <div class="text-black tablet-600:text-base text-xl card--text font-medium underline">Xem sản phẩm</div>
+                                        <div class="text-black text-xl font-bold">Đồ gia dụng</div>
+                                        <div class="text-black tablet-600:text-base text-xs card--text font-medium underline">Xem sản phẩm</div>
                                    </div>
                               </div>
                          </div>
