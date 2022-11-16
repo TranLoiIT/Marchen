@@ -37,7 +37,7 @@
                                    class="col-span-1 bg-white rounded-15 shadow-xl height--card"
                               >
                                    <img
-                                        class="w-full height--image object-cover py-3 px-1"
+                                        class="w-full height--image object-cover py-3 px-3"
                                         :src="`${URL}/uploads/${item.img_item}`"
                                         :alt="item.img_item"
                                    >
