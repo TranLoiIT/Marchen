@@ -17,6 +17,15 @@
                                    <p class=" text-xs ml-2 mt-1">* Hút mùi</p>
                                    <p class=" text-xs ml-2 mt-1">* Máy rửa bát</p>
                                    <p class=" text-xs ml-2 mt-1">* Đồ gia dụng</p>
+                                   <div class="mt-5 flex items-center">
+                                        <div>
+                                             <img src="~/assets/image/technology.png" class="w-12"></img>
+                                        </div>
+                                        <div class="ml-2 text-xs italic">
+                                             Made in Germany.
+                                        </div>
+
+                                   </div>
                               </div>
                          </div>
                          <div class="lg:col-span-2 tablet-600:col-span-3 col-span-5 ">

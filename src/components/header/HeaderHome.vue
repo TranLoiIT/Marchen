@@ -10,7 +10,7 @@
                <div class="container">
                     <div class=" grid grid-cols-12 gap-5">
                          <div class="lg:col-span-3 col-span-6">
-                              <img @click="$router.push('/'); sreach = ''" class="header--h cursor-pointer" src="~/assets/image/logo.png" />
+                              <img @click="$router.push('/'); sreach = ''" class="header--h cursor-pointer" src="~/assets/image/logo-2.png" />
                               <!-- <img @click="$router.push('/')" class="cursor-pointer" src="~/assets/image/logo.png" style="height: 78px !important;" /> -->
                          </div>
                          <div class="col-span-6 lg:flex hidden items-center xl:gap-8 desktop-md:gap-12">
