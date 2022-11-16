@@ -21,7 +21,7 @@
                               <div class="lg:col-span-4 col-span-10">
                                    <div class="py-4 w-full">
                                         <img
-                                             class="w-full object-cover rounded-3xl shadow-2xl"
+                                             class="w-full object-cover shadow-2xl"
                                              :src="`${URL}/uploads/${product.img_item}`"
                                              :alt="product.img_item"
                                         />
@@ -68,7 +68,7 @@
                                         <div class="lg:text-xl text-base font-bold">- Ảnh mô tả kích thước sản phẩm: </div>
                                         <div class="py-4 pr-10 w-full">
                                              <img
-                                                  class="w-full object-cover rounded-3xl shadow-2xl"
+                                                  class="w-full object-cover shadow-2xl"
                                                   :src="`${URL}/uploads/${product.img_thumbnail}`"
                                                   :alt="product.img_thumbnail"
                                              />
