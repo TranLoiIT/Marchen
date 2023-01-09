@@ -1,11 +1,5 @@
 <template>
      <div>
-          <div
-               class="bg-black py-1 text-xs w-full text-center text-white"
-               style="position: fixed;top: 0;left: 0;right: 0;z-index: 999999;"
-          >
-               Đang trong quá trình thử nghiệm.
-          </div>
           <div class="header header--h shadow-xl">
                <div class="container">
                     <div class=" grid grid-cols-12 gap-5">
@@ -105,8 +99,7 @@ export default {
           background: #FFFFFF;
           position: fixed;
           z-index: 99999;
-          // top: 0;
-          top: 24px;
+          top: 0;
           right: 0;
           left: 0;
           &--h {
@@ -119,8 +112,7 @@ export default {
           position: fixed;
           z-index: 99999;
           border-top: 2px solid rgb(75, 85, 99);
-          // top: 82px;
-          top: 106px;
+          top: 82px;
           right: 0;
           height: calc(100vh - 56px);
           width: 90%;
@@ -131,8 +123,7 @@ export default {
           background: #FFFFFF;
           position: fixed;
           z-index: 99999;
-          // top: 0;
-          top: 24px;
+          top: 0;
           right: 0;
           left: 0;
           &--h {
