@@ -120,6 +120,28 @@ export default {
                this.getDataProducts()
           }
      },
+     head() {
+          return {
+                title: 'Machen | Sản phẩm',
+                meta: [
+                    {
+                        hid: 'description',
+                        name: 'description',
+                        content: 'Marchen Việt Nam là công ty phân phối độc quyền các sản phẩm, thiết bị nhà bếp độc quyền của thương hiệu Marchen. Chúng tôi luôn tự hào là đối tác tin cậy, nơi cung cấp các sản phẩm chính hãng, giá cả hợp lý của thương hiệu thiết bị bếp cao cấp Marchen.',
+                    },
+                    {
+                        hid: 'og:title',
+                        property: 'og:title',
+                        content: 'Machen | Sản phẩm',
+                    },
+                    {
+                        hid: 'og:description',
+                        property: 'og:description',
+                        content: 'Marchen Việt Nam là công ty phân phối độc quyền các sản phẩm, thiết bị nhà bếp độc quyền của thương hiệu Marchen. Chúng tôi luôn tự hào là đối tác tin cậy, nơi cung cấp các sản phẩm chính hãng, giá cả hợp lý của thương hiệu thiết bị bếp cao cấp Marchen.',
+                    },
+                ],
+            };
+        },
      data() {
           return {
                listCategory: [],

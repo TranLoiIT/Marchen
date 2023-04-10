@@ -256,6 +256,29 @@ export default {
                URL: process.env.BROWSER_API_URL,
           };
      },
+     head() {
+          return {
+                title: 'Machen | Trang chủ',
+                meta: [
+                    {
+                        hid: 'description',
+                        name: 'description',
+                        content: 'Bếp từ Marchen là công ty phân phối độc quyền các sản phẩm, thiết bị nhà bếp độc quyền của thương hiệu Marchen. Chúng tôi luôn tự hào là đối tác tin cậy, nơi cung cấp các sản phẩm chính hãng, giá cả hợp lý của thương hiệu thiết bị bếp cao cấp Marchen.',
+                    },
+                    {
+                        hid: 'og:title',
+                        property: 'og:title',
+                        content: 'Machen | Trang chủ',
+                    },
+                    {
+                        hid: 'og:description',
+                        property: 'og:description',
+                        content: 'Bếp từ Marchen là công ty phân phối độc quyền các sản phẩm, thiết bị nhà bếp độc quyền của thương hiệu Marchen. Chúng tôi luôn tự hào là đối tác tin cậy, nơi cung cấp các sản phẩm chính hãng, giá cả hợp lý của thương hiệu thiết bị bếp cao cấp Marchen.',
+                    },
+                ],
+            };
+        },
+
      methods: {
           async getData() {
                try {

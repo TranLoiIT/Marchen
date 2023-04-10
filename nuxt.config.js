@@ -9,6 +9,24 @@ export default {
     },
     meta: [
       { charset: 'utf-8' },
+      {
+        hid: 'copyright',
+        name: 'copyright',
+        content: 'Marchen',
+      },
+      {
+        hid: 'og:type',
+        property: 'og:type',
+        content: 'article',
+      },
+      {
+        name: 'google-site-verification',
+      },
+      {
+        name: 'robots',
+        content: 'index, follow',
+      },
+
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
@@ -21,6 +39,12 @@ export default {
   ssr: false,
 
   srcDir: path.resolve(__dirname, 'src'),
+
+  render: {
+    http2: {
+        push: true,
+    },
+  },
 
   server: {
     port: 8000
@@ -87,11 +111,22 @@ export default {
     proxy: true
   },
 
-  // robots: {
-  //   /* module options */
-  //   // UserAgent: '*',
-  //   // Disallow: '/',
-  // },
+  robots: {
+    /* module options */
+    UserAgent: '*',
+    Disallow: ['/admin', '/admin/**']
+  },
+
+  sitemap: {
+    hostname: 'http://marchen.vn/',
+    exclude: [
+      '/admin/**',
+      '/admin',
+    ],
+    cacheTime: 1000 * 60 * 60 * 24, // 1 day.
+  },
+
+
 
   env: {
     BROWSER_API_URL: process.env.BROWSER_API_URL,
