@@ -7,6 +7,7 @@
                <img class="lg:h-6 lg:w-6 w-4 h-4" src="~/assets/image/sreach.svg" alt="sreach">
           </div>
           <input
+               placeholder="Tìm kiếm"
                ref="inputSreach"
                v-model="inputValue"
                maxlength="256"
