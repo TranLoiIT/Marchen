@@ -4,9 +4,6 @@ export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'Marchen',
-    htmlAttrs: {
-      lang: 'vn'
-    },
     meta: [
       { charset: 'utf-8' },
       {
@@ -33,7 +30,10 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/logo-web.png' }
-    ]
+    ],
+    htmlAttrs: {
+      lang: 'vi',
+    },
   },
 
   ssr: false,
@@ -91,19 +91,21 @@ export default {
     },
 
     optimization: {
+      minimize: true,
         splitChunks: {
-            chunks: 'async',
+          cacheGroups: {
+            styles: {
+                name: 'styles',
+                test: /\.(css|vue)$/,
+                chunks: 'all',
+                enforce: true,
+            },
+        },
+
         },
     },
-    splitChunks: {
-        pages: false,
-        vendor: false,
-        commons: false,
-        runtime: false,
-        layouts: false,
-    },
     extractCSS: {
-        allChunks: true,
+      ignoreOrder: true,
     },
   },
 

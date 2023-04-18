@@ -19,7 +19,7 @@
                                    <p class=" text-xs ml-2 mt-1">* Đồ gia dụng</p>
                                    <div class="mt-5 flex items-center">
                                         <div>
-                                             <img src="~/assets/image/technology.png" class="w-12"></img>
+                                             <img src="~/assets/image/technology.png" class="w-12" alt="Technology"></img>
                                         </div>
                                         <div class="ml-2 text-xs italic">
                                              Made in Germany.
@@ -51,7 +51,7 @@
                                              class=" absolute "
                                              style="width: 30px; height: 30px;"
                                              src="~/assets/image/phone.svg"
-                                             alt=""
+                                             alt="phone"
                                         >
                                    </a>
                                    <div class="w-10 h-10 rounded-md bg-white flex justify-center items-center mr-5 cursor-pointer">
@@ -59,7 +59,7 @@
                                              class=" absolute "
                                              style="width: 30px; height: 30px;"
                                              src="~/assets/image/gmail.png"
-                                             alt=""
+                                             alt="gmail"
                                         >
                                    </div>
                                    <a
@@ -71,14 +71,14 @@
                                              class=" absolute bottom-0"
                                              style="width: 30px; height: 30px; right: 2px;"
                                              src="~/assets/image/facebook.png"
-                                             alt=""
+                                             alt="facebook"
                                         >
                                    </a>
                               </div>
                          </div>
                          <div class="lg:col-span-3 col-span-7">
                               <a href="https://www.google.com/maps/place/C%E1%BB%A5m+c%C3%B4ng+nghi%E1%BB%87p+qu%E1%BA%A5t+%C4%91%E1%BB%99ng/@20.8400197,105.8423033,14z/data=!4m5!3m4!1s0x3135b3f61d12ab6d:0xc022a22ec14958b2!8m2!3d20.843504!4d105.8650538?hl=vi" target="_blank">
-                                   <img class="w-full h-full rounded-15" src="~/assets/image/maps.png" alt="" />
+                                   <img class="w-full h-full rounded-15" src="~/assets/image/maps.png" alt="maps" />
                               </a>
                          </div>
                     </div>

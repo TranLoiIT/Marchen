@@ -13,7 +13,7 @@
                               @click="hanlderCategories(item.name)"
                          >
                               <div class="flex justify-center">
-                                   <img :src="require(`~/assets/image/${item.image}`)" class="image-cate object-cover" alt="" />
+                                   <img :src="require(`~/assets/image/${item.image}`)" class="image-cate object-cover" alt="Category" loading="lazy"/>
                               </div>
                               <div
                                    class="text-center cursor-pointer mt-5"

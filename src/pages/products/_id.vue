@@ -34,14 +34,14 @@
                                    </div>
                                    <div class="flex justify-between mt-2">
                                         <div class="flex items-center">
-                                             <img src="~/assets/image/technology.png" style="width: 36px;" alt="">
+                                             <img src="~/assets/image/technology.png" style="width: 36px;" alt="technology">
                                              <p class="ml-1 text-sm font-thin italic">Technology by Germany</p>
                                         </div>
                                         <div class="flex tablet-600:mr-10px">
-                                             <img src="~/assets/image/icon1.png" style="width: 52px;" alt="">
-                                             <img src="~/assets/image/icon2.png" style="width: 52px;" alt="">
-                                             <img src="~/assets/image/icon3.png" style="width: 52px;" alt="">
-                                             <img src="~/assets/image/icon4.png" style="width: 52px;" alt="">
+                                             <img src="~/assets/image/icon1.png" style="width: 52px;" alt="icon1">
+                                             <img src="~/assets/image/icon2.png" style="width: 52px;" alt="icon2">
+                                             <img src="~/assets/image/icon3.png" style="width: 52px;" alt="icon3">
+                                             <img src="~/assets/image/icon4.png" style="width: 52px;" alt="icon4">
                                         </div>
                                    </div>
                                    <div class="mt-5 text-base font-normal">
@@ -173,6 +173,28 @@ export default {
                listItem: [],
                loading: true,
                URL: process.env.BROWSER_API_URL,
+          };
+     },
+     head() {
+          return {
+               title: 'Machen | Bài viết',
+               meta: [
+                    {
+                        hid: 'description',
+                        name: 'description',
+                        content: 'Marchen Việt Nam là công ty phân phối độc quyền các sản phẩm, thiết bị nhà bếp độc quyền của thương hiệu Marchen. Chúng tôi luôn tự hào là đối tác tin cậy, nơi cung cấp các sản phẩm chính hãng, giá cả hợp lý của thương hiệu thiết bị bếp cao cấp Marchen.',
+                    },
+                    {
+                        hid: 'og:title',
+                        property: 'og:title',
+                        content: 'Machen | Bài viết',
+                    },
+                    {
+                        hid: 'og:description',
+                        property: 'og:description',
+                        content: 'Marchen Việt Nam là công ty phân phối độc quyền các sản phẩm, thiết bị nhà bếp độc quyền của thương hiệu Marchen. Chúng tôi luôn tự hào là đối tác tin cậy, nơi cung cấp các sản phẩm chính hãng, giá cả hợp lý của thương hiệu thiết bị bếp cao cấp Marchen.',
+                    },
+               ],
           };
      },
      methods: {

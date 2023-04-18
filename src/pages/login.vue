@@ -6,7 +6,7 @@
                <div class="h-screen opacity-25 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500" />
           </div>
           <div class="absolute inset-0 z-0">
-               <img class="w-screen h-screen" src="~/assets/image/image-login.png" />
+               <img class="w-screen h-screen" src="~/assets/image/image-login.png" alt="Login" />
           </div>
           <div class="min-h-screen flex mx-0 justify-center">
                <div class="flex-col flex self-center sm:pr-10 w-2/5 z-10">

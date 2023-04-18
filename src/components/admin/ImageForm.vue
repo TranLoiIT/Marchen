@@ -9,7 +9,7 @@
                >
           </div>
           <div class="mt-4">
-               <img :src="image ? image : `${URL}/uploads/${value}`" :alt="altImage" style="width: 200px;">
+               <img :src="image ? image : `${URL}/uploads/${value}`" :alt="altImage" style="width: 200px;" alt="Upload">
           </div>
           <p v-if="errorImageSize" class="text-red-600">
                Uploaded image exceeds 500kb, please choose another file

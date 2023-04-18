@@ -9,17 +9,17 @@
           >
                <slide>
                     <div>
-                         <img class="w-full object-cover baner-h" src="~/assets/image/banner1.jpg" alt="" />
+                         <img class="w-full object-cover baner-h" src="~/assets/image/banner1.jpg" alt="banner1" />
                     </div>
                </slide>
                <slide>
                     <div>
-                         <img class="w-full object-cover baner-h" src="~/assets/image/banner2.jpg" alt="" />
+                         <img class="w-full object-cover baner-h" src="~/assets/image/banner2.jpg" alt="banner2" />
                     </div>
                </slide>
                <slide>
                     <div>
-                         <img class="w-full object-cover baner-h" src="~/assets/image/banner3.png" alt="" />
+                         <img class="w-full object-cover baner-h" src="~/assets/image/banner3.png" alt="banner3" />
                     </div>
                </slide>
           </carousel>
