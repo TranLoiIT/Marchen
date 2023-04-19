@@ -177,22 +177,22 @@ export default {
      },
      head() {
           return {
-               title: 'Machen | Bài viết',
+               title: 'Machen | Sản phẩm | ' + this.product.model,
                meta: [
                     {
                         hid: 'description',
                         name: 'description',
-                        content: 'Marchen Việt Nam là công ty phân phối độc quyền các sản phẩm, thiết bị nhà bếp độc quyền của thương hiệu Marchen. Chúng tôi luôn tự hào là đối tác tin cậy, nơi cung cấp các sản phẩm chính hãng, giá cả hợp lý của thương hiệu thiết bị bếp cao cấp Marchen.',
+                        content: 'Machen | Sản phẩm | ' + this.product.model + ' | ' + this.product.description,
                     },
                     {
                         hid: 'og:title',
                         property: 'og:title',
-                        content: 'Machen | Bài viết',
+                        content: 'Machen | Sản phẩm | ' + this.product.model,
                     },
                     {
                         hid: 'og:description',
                         property: 'og:description',
-                        content: 'Marchen Việt Nam là công ty phân phối độc quyền các sản phẩm, thiết bị nhà bếp độc quyền của thương hiệu Marchen. Chúng tôi luôn tự hào là đối tác tin cậy, nơi cung cấp các sản phẩm chính hãng, giá cả hợp lý của thương hiệu thiết bị bếp cao cấp Marchen.',
+                        content: 'Machen | Sản phẩm | ' + this.product.model + ' | ' + this.product.description,
                     },
                ],
           };
@@ -227,7 +227,6 @@ export default {
                }
           },
           formatText(value) {
-               console.log(value);
                const data = value;
                return data.replace(/\n/g, "<br />");
           }
