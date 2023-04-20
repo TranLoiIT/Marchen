@@ -170,6 +170,7 @@ export default {
      data() {
           return {
                product: {},
+               description_header: "",
                listItem: [],
                loading: true,
                URL: process.env.BROWSER_API_URL,
@@ -182,7 +183,7 @@ export default {
                     {
                         hid: 'description',
                         name: 'description',
-                        content: 'Machen | Sản phẩm | ' + this.product.model + ' | ' + this.product.description,
+                        content: 'Bếp từ Marchen | Model: ' + this.product.model + ' | ' + this.description_header,
                     },
                     {
                         hid: 'og:title',
@@ -192,7 +193,7 @@ export default {
                     {
                         hid: 'og:description',
                         property: 'og:description',
-                        content: 'Machen | Sản phẩm | ' + this.product.model + ' | ' + this.product.description,
+                        content: 'Bếp từ Marchen | Model: ' + this.product.model + ' | ' + this.description_header,
                     },
                ],
           };
@@ -208,6 +209,7 @@ export default {
                          this.product = data.item;
                          this.listItem = data.relation;
                          this.product.description = this.formatText(data.item.description);
+                         this.description_header = this.formatTextHeader(this.product.description);
                     }
                } catch (error) {
                     console.log(error);
@@ -225,6 +227,10 @@ export default {
                if (id) {
                     this.$router.push(`/products/${id}`);
                }
+          },
+          formatTextHeader(value) {
+               const data = value;
+               return data.replace(/(● )+/g, "").replace(/(<br \/>)+/g, ", ");
           },
           formatText(value) {
                const data = value;
