@@ -135,6 +135,16 @@ export default {
                         content: 'Machen | Sản phẩm',
                     },
                     {
+                        hid: 'og:url',
+                        property: 'og:url',
+                        content: 'https://marchen.com.vn/products',
+                    },
+                    {
+                        hid: 'og:image',
+                        property: 'og:image',
+                        content: 'https://marchen.com.vn/_nuxt/img/bep-tu.347ce19.jpg',
+                    },
+                    {
                         hid: 'og:description',
                         property: 'og:description',
                         content: 'Marchen Việt Nam là công ty phân phối độc quyền các sản phẩm, thiết bị nhà bếp độc quyền của thương hiệu Marchen. Chúng tôi luôn tự hào là đối tác tin cậy, nơi cung cấp các sản phẩm chính hãng, giá cả hợp lý của thương hiệu thiết bị bếp cao cấp Marchen.',

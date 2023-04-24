@@ -191,6 +191,16 @@ export default {
                         content: 'Machen | Sản phẩm | ' + this.product.model,
                     },
                     {
+                        hid: 'og:url',
+                        property: 'og:url',
+                        content: 'https://marchen.com.vn/products/' + this.product.id,
+                    },
+                    {
+                        hid: 'og:image',
+                        property: 'og:image',
+                        content: 'https://marchen.com.vn/_nuxt/img/bep-tu.347ce19.jpg',
+                    },
+                    {
                         hid: 'og:description',
                         property: 'og:description',
                         content: 'Bếp từ Marchen | Model: ' + this.product.model + ' | ' + this.description_header,
